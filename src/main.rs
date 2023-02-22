@@ -13,7 +13,7 @@ async fn main() {
             exit(1)
         }
     };
-    let redirect_response = format!("HTTP/1.1 301 Moved Permanently\nLocation: {target}\nConnection: close");
+    let redirect_response = format!("HTTP/1.1 301 Moved Permanently\r\nLocation: {target}\r\nConnection: close\r\n\r\n");
     let redirect_response_bytes = redirect_response.as_bytes();
 
     let listener = TcpListener::bind("127.0.0.1:80").await.unwrap();
