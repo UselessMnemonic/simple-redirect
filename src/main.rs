@@ -16,7 +16,7 @@ async fn main() {
     let redirect_response = format!("HTTP/1.1 301 Moved Permanently\nLocation: {target}\nConnection: close");
     let redirect_response_bytes = redirect_response.as_bytes();
 
-    let listener = TcpListener::bind("localhost:80").await.unwrap();
+    let listener = TcpListener::bind("127.0.0.1:80").await.unwrap();
     listener
         .incoming()
         .for_each_concurrent(None, |client| async {
